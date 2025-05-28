@@ -1,6 +1,6 @@
-const asynchandlers=(requesthandler)=>{
-    (req,res,next)=>{
-        promise.resolve(requesthandler(req,res,next)).
+const asynchandler=(requesthandler)=>{
+    return (req,res,next)=>{
+        Promise.resolve(requesthandler(req,res,next)).
         catch((err)=>next(err));
     }
 }
@@ -10,7 +10,7 @@ const asynchandlers=(requesthandler)=>{
 
 
 
-const asynchandler=(func)=> async(req,res,next)=>{
+/*const asynchandler=(func)=> async(req,res,next)=>{
     try{
 
         await func(req,res,next)
@@ -24,5 +24,5 @@ const asynchandler=(func)=> async(req,res,next)=>{
     }
 
 }
-
+*/
 export {asynchandler}

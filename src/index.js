@@ -1,13 +1,15 @@
 import dotenv from "dotenv";
 import connectDB from "./db/index.js";
-import cookieparser from "cookie-par"
+import cookieparser from "cookie-parser"
+import express from "express";
+import app from "./app.js";
 
 dotenv.config();
 
 
 connectDB()
 .then(()=>{
-    app.listen(process.env.port || 8000,()=>{
+    app.listen(process.env.port || 3000,()=>{
        console.log(`server is running at port: ${process.env.port}`);  
     })
 })
