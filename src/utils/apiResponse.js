@@ -8,3 +8,6 @@ class ApiResponse{
         this.success=statuscode<400  
     }
 }
+
+export {ApiResponse};
+// This code defines an ApiResponse class that is used to standardize API responses in a Node.js application.
