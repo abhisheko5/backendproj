@@ -1,5 +1,5 @@
 import express from "express"
-import {registerUser,loginUser,logoutUser} from "../controllers/user.controller.js"
+import {registerUser,loginUser,logoutUser,refreshaccessToken,changeCurrentPassword, getCurrentUser,updateAccountDetails} from "../controllers/user.controller.js"
 import {isAuthenticated} from "../middlewares/auth.middleware.js"
 
 
@@ -26,6 +26,12 @@ router.route("/login").post(loginUser)
 //secured routes
 
 router.route("/logout").post(isAuthenticated,logoutUser)
+
+router.route("/refresh-token").post(refreshaccessToken)
+
+router.route("/changePassword").post(isAuthenticated,changeCurrentPassword)
+router.route("/getcurrentuser").Get(isAuthenticated,getCurrentUser);
+router.route("/updatedetails").post(isAuthenticated,updateAccountDetails);
 
 
 export default router;
